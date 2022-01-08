@@ -1,0 +1,1 @@
+{"name":"Local: fractionalknapsack","url":"/Users/satwik/Desktop/Code/DSA GFG/Greedy/fractionalknapsack.cpp","tests":[{"id":1636551356086,"input":"3 50\n60 10\n100 20\n120 30","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/satwik/Desktop/Code/DSA GFG/Greedy/fractionalknapsack.cpp","group":"local","local":true}
