@@ -1,0 +1,1 @@
+{"name":"Local: Stock Span Problem","url":"/home/satwik/Documents/code/DSA GFG/Arrays/Stock Span Problem.cpp","tests":[{"id":1624819193815,"input":"7\n100 80 60 70 60 75 85","output":"1 1 1 2 1 4 6"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/satwik/Documents/code/DSA GFG/Arrays/Stock Span Problem.cpp","group":"local","local":true}
