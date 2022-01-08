@@ -1,0 +1,1 @@
+{"name":"Local: SSP","url":"c:\\Users\\dexco\\Documents\\code\\DSA GFG\\Stack\\SSP.cpp","tests":[{"id":1625206097779,"input":"6\n10 4 5 90 120 80","output":"1 1 2 4 5 1"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\dexco\\Documents\\code\\DSA GFG\\Stack\\SSP.cpp","group":"local","local":true}
