@@ -4,13 +4,10 @@ using namespace std;
 struct Node{
 
     int data;
-    Node *left;
-    Node *right;
-
+    Node* left, *right;
 
     Node(int val){
         data = val;
-
         left = right = NULL;
     }
 };
@@ -32,25 +29,79 @@ Node* create(){
     return new_node;
 }
 
+//Approach 1
 
-int depth_of_tree(Node* root){
+bool is_balance(Node* root, int *height){
+    
+    if(root == NULL){
+        return true;
+    }
+
+    int lh = 0, rh = 0;
+
+    if(is_balance(root->left, &lh) == false){
+        return false;
+    }
+
+    if(is_balance(root->right, &rh) == false){
+        return false;
+    }
+
+    *height = 1 + max(lh, rh);
+
+    if(abs(lh - rh) <= 1){
+        return true;
+    }
+
+    return false;
+
+}
+
+
+//Approach 2
+
+int is_balanced(Node* root){
 
     if(root == NULL){
         return 0;
     }
 
-    int l_sub_tree = depth_of_tree(root->left);
-    int r_sub_tree = depth_of_tree(root->right);
+    int lh = is_balanced(root->left);
 
-    if(l_sub_tree - r_sub_tree > 1){
-        return false;
+    if(lh == -1){
+        return -1;
     }
-    return 1 + max(l_sub_tree, r_sub_tree);
+
+    int rh = is_balanced(root->right);
+
+    if(rh == -1){
+        return -1;
+    }
+
+    if(abs(lh = rh) > 1){
+        return -1;
+    }
+
+    return 1 + max(lh, rh);
 }
+
 
 int main(){
 
+#ifndef ONLINE_JUDGE
+    freopen("inputf.txt", "r", stdin);
+    freopen("outputf.txt", "w", stdout);
+#endif
+
     Node* root = create();
-    cout << depth_of_tree(root);
+
+
+    if(is_balanced(root) != -1){
+        cout << "Tree is balanced\n";
+    }
+    else{
+        cout << "Tree is not balanced\n";
+    }
+
     return 0;
 }
