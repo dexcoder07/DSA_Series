@@ -1,46 +1,61 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+//using vector
 
-int main(){
-    
-    int n,m;
-    
-    cin >> n >> m;
-    
-    vector<int> adj[n+1];
-    
-    for(int i = 0 ; i < m ; i++){
-        int u, v;
-        
-        cin >> u >> v;
-        
-        adj[u].push_back(v);
-        adj[v].push_back(u);
-    }
-    
-    vector<int> vis(n+1,0);
-    
-    for(int i = 1 ; i <= n ; i++){
-        if(vis[i] == 0){
-            
-            queue<int> que;
-            que.push(i);
-            vis[i] = 1;
-            
-            while(!que.empty()){
-                int x = que.front();
-                cout << x << " ";
-                que.pop();
-                
-                for(auto it : adj[x]){
-                    if(!vis[it]){           // Always check this condition ni to loop infinite ho jayega kyu ki element repeted enter hota rhega queue m.
-                        que.push(it);
-                        vis[it] = 1;
-                    }
-                }
+void BFS(vector<int> adj[], int node, int vis[]){
+
+    vector<int> ans;
+
+    queue<int> que;
+    que.push(node);
+    vis[node] = 1;
+
+    while(!que.empty()){
+        int temp = que.front();
+        que.pop();
+
+        cout << temp << " ";
+
+        for(auto it : adj[temp]){
+            if(!vis[it]){
+                que.push(it);
+                vis[it] = 1;
             }
         }
     }
-    return 0;
+}
+
+int main(){
+
+#ifndef ONLINE_JUDGE
+    freopen("inputf.txt", "r", stdin);
+    freopen("outputf.txt", "w", stdout);
+#endif
+
+    int n;
+    cin >> n;
+
+    int m;
+    cin >> m;
+
+    vector<int> adj[n];
+
+    for(int i = 0 ; i < m ; i++){
+        int u, v;
+        cin >> u >> v;
+        adj[u].push_back(v);
+        adj[v].push_back(u);
+    }
+
+    int vis[n];
+    memset(vis, 0, sizeof vis);
+
+    for(int i = 0 ; i < n ; i++){
+        if(!vis[i]){
+            BFS(adj, i, vis);
+        }
+    }
+
+	return 0;
 }

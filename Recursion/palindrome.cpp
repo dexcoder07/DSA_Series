@@ -20,7 +20,11 @@ bool palindrome(string str, int i,int n){
 }
 int main()
 {
+#ifndef ONLINE_JUDGE
+    freopen("inputf.txt", "r", stdin);
+    freopen("outputf.txt", "w", stdout);
+#endif
     string s = "abcddcba";
-    cout<<palindrome(s,0,s.size());
+    cout << palindrome(s,0,s.size());
     return 0;
 }
