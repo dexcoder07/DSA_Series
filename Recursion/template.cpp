@@ -9,6 +9,20 @@ int main(){
     freopen("outputf.txt", "w", stdout);
 #endif
 
-    cout << "satwik raj";
+    int n;
+    cin >> n;
+
+    vector<int> vec;
+
+    for(int i = 0 ; i< n ; i++){
+        int x;
+        cin >> x;
+        vec.push_back(x);
+    }
+
+    int p = 5;
+    for(auto it : vec){
+        cout << (it ^ p) << " ";
+    }
 	return 0;
 }

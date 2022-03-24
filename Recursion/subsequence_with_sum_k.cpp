@@ -2,29 +2,6 @@
 using namespace std;
 
 
-void sumK(vector<int> &arr,int s, int sum, int idx, vector<int> &ans){
-
-	if(idx >= arr.size()){
-		if(s == sum){
-			for(auto it : ans){
-				cout << it << " ";
-			}
-			cout << endl;
-		}
-		return;
-	}
-
-
-	ans.push_back(arr[idx]);
-	s += arr[idx];
-	sumK(arr, s, sum, idx+1, ans);
-
-	ans.pop_back();
-	s -= arr[idx];
-	sumK(arr, s, sum, idx+1, ans);
-}
-
-
 
 
 
