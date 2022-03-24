@@ -1,6 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+//This approach will find all the subsets and uniqe subsets are find using set.
 void combination(vector<int> &arr, int idx, int target,  vector<int> &ds, set<vector<int>> &vec){
         
         if(target == 0){
@@ -22,24 +23,34 @@ void combination(vector<int> &arr, int idx, int target,  vector<int> &ds, set<ve
         
     }
     
-
+//This approach will find only the unique subsets.
+void findCombination(int ind, int target, vector<int> & arr, vector <vector<int>> &ans,vector<int>& ds) {
+        
+        if(target == 0){
+            ans.push_back(ds);
+        return;
+        }
+        
+        for (int i = ind; i < arr.size(); i++){
+           if (i > ind && arr[i] == arr[i - 1]) continue;
+            if (arr[i] > target) break;
+            ds.push_back(arr[i]);
+            findCombination(i + 1, target - arr[i], arr, ans, ds);
+            ds.pop_back();
+        }
+        
+    }
     
     vector<vector<int>> combinationSum2(vector<int>& candidates, int target) {
         
         sort(candidates.begin(), candidates.end());
-        set<vector<int>> vec;
-        vector<vector<int>> ans;
         
-        vector<int> ds;
+        vector < vector < int >> ans;
+        vector < int > ds;
         
-        combination(candidates, 0, target, ds, vec);
-        
-        for(auto it : vec){
-            ans.push_back(it);
-        }
-        
+        findCombination(0, target, candidates, ans, ds);
         return ans;
-    }
+    }}
 
 int main(){
 
