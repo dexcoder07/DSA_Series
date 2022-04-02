@@ -10,6 +10,10 @@ int main(){
 #endif
 
 
+	int n;
+	cin >> n;
+
+	cout << n;
 	
 	return 0;
 }

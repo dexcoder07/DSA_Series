@@ -11,8 +11,8 @@ struct ListNode {
 };
 
 
-class Solution {
-public:
+// TC = O(n1+n2)
+// SC = O(n1+n2)
     ListNode* mergeTwoLists(ListNode* list1, ListNode* list2) {
         
         if(list1 == NULL){
@@ -69,4 +69,19 @@ public:
         
         return head;
     }
-};
+
+
+
+// Approach 2
+
+    ListNode* mergeTwoLists(ListNode* list1, ListNode* list2) {
+        
+        if(list1 == NULL){
+            return list2;
+        }
+        if(list2 == NULL){
+            return list1;
+        }
+        
+        
+    }

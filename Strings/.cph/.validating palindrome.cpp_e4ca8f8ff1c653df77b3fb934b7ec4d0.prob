@@ -1,0 +1,1 @@
+{"name":"Local: validating palindrome","url":"/Users/satwik/Desktop/DSA/Strings/validating palindrome.cpp","tests":[{"id":1648859513718,"input":"abca","output":"1"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/satwik/Desktop/DSA/Strings/validating palindrome.cpp","group":"local","local":true}
